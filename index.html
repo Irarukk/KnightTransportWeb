@@ -38,8 +38,7 @@
             <h2 class="white">Bienvenido a Knight Transport:</h2>
             <p class="banner-text white">En Knight Transport, entendemos la importancia de llegar a tiempo y de manera segura a tus clases en Duoc UC.</p>
             <ul>
-              <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s"/></a></li>
-              <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
+              <li><a id="linkapp" href="#"><img id="imagenqrp" src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
             </ul>
           </div>
         </div>
@@ -209,6 +208,25 @@ $(window).on("load",function (){
 	topOffset: -63
 	});
 });
+
+function cambiarImagenSegunAncho() {
+      var imagen = document.getElementById('imagenqrp');
+      var link = document.getElementById('linkapp');
+      if (window.innerWidth <= 600) {
+        // Cambia a la imagen para dispositivos móviles
+        imagen.src = 'images/playstore.png';
+        link.href = 'https://github.com/Irarukk/KnightTransport/releases/download/1.0/app-debug.apk';
+      } else {
+        // Mantiene la imagen para PC
+        imagen.src = 'images/qr-code.png';
+        link.href = '#';
+      }
+    }
+
+    // Llama a la función al cargar la página y cuando se redimensiona la pantalla
+    window.onload = cambiarImagenSegunAncho;
+    window.onresize = cambiarImagenSegunAncho;
+
 
 </script>
 </body>
